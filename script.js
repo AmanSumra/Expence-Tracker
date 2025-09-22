@@ -24,14 +24,12 @@ class MultiProfileFinanceTracker {
     }
 
     bindEvents() {
-        // Profile selection
         document.getElementById('profile-select').addEventListener('change', (e) => {
             this.currentProfile = e.target.value;
             this.updateDisplay();
             this.renderTransactions();
         });
-
-        // Add new profile
+        
         document.getElementById('add-profile').addEventListener('click', () => {
             const newProfileName = document.getElementById('new-profile-name').value.trim();
             
@@ -58,7 +56,6 @@ class MultiProfileFinanceTracker {
             this.showNotification(`Profile "${newProfileName}" created successfully!`);
         });
 
-        // Delete profile
         document.getElementById('delete-profile').addEventListener('click', () => {
             if (!this.currentProfile) return;
             
@@ -74,7 +71,6 @@ class MultiProfileFinanceTracker {
             }
         });
 
-        // Transaction form
         document.getElementById('transaction-form').addEventListener('submit', (e) => {
             this.handleTransactionSubmit(e);
         });
@@ -115,7 +111,6 @@ class MultiProfileFinanceTracker {
         this.updateDisplay();
         this.renderTransactions();
         
-        // Reset form
         e.target.reset();
         this.showNotification('Transaction added successfully!');
     }
@@ -248,5 +243,4 @@ class MultiProfileFinanceTracker {
     }
 }
 
-// Initialize the app
 const tracker = new MultiProfileFinanceTracker();
